@@ -1,0 +1,410 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>JavaScript Mini Projects Course</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/a11y-dark.min.css">
+
+  <style>
+    .reveal section img {
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .reveal pre code {
+      font-size: 0.85em;
+      padding: 1em;
+    }
+    .reveal strong {
+      color: #f9d342;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h2>🚀 JavaScript in 7 Hours</h2>
+        <p><strong>Mini Projects + Real Life Use + DOM</strong></p>
+        <p>By: Ramzi Hamouti</p>
+      </section>
+
+      <section>
+        <h2>🧩 7-Hour Plan</h2>
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Project</th><th>Concepts</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1H</td><td>Intro + Product Viewer</td><td>Variables, Types, Object, DOM</td></tr>
+            <tr><td>1.5H</td><td>Click Counter</td><td>Number, Events, Conditions</td></tr>
+            <tr><td>2H</td><td>To-Do List</td><td>Array, Loop, DOM Create/Delete</td></tr>
+            <tr><td>1H</td><td>Quiz App</td><td>Objects in Array, Logic, Score</td></tr>
+            <tr><td>1H</td><td>Final Practice Project</td><td>Mix All</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+
+      <!--  -->
+
+
+      <section>
+  <section>
+    <h2>🌍 Real-World JS Concepts</h2>
+    <p>Understanding JavaScript in an Online Store Project</p>
+    <ul>
+      <li><strong>DOM</strong>: Controls the webpage</li>
+      <li><strong>Data Types</strong>: Defines product info</li>
+      <li><strong>Arrays</strong>: Stores multiple items</li>
+      <li><strong>Objects</strong>: Groups product details</li>
+      <li><strong>Events</strong>: Listens for clicks, actions</li>
+    </ul>
+    <p style="font-size: 0.8em; color: gray;">Example: Showing a product when clicking a button</p>
+  </section>
+
+  <!-- DOM Slide -->
+  <section>
+    <h3>📄 DOM – The Bridge to HTML</h3>
+    <p>JavaScript connects to HTML using the DOM</p>
+    <pre><code class="language-js">
+document.getElementById("title").textContent = "iPhone 15";
+    </code></pre>
+    <p>This changes the content of an HTML element</p>
+    <p><strong>Real Use:</strong> Display product name or update price</p>
+  </section>
+
+  <!-- Data Types Slide -->
+  <section>
+    <h3>🔠 Data Types – Info in the App</h3>
+    <p>Used for every product</p>
+    <pre><code class="language-js">
+let name = "iPhone";     // string
+let price = 1099.99;     // number
+let inStock = true;      // boolean
+    </code></pre>
+    <p><strong>Real Use:</strong> Show product info and control display logic</p>
+  </section>
+
+  <!-- Arrays Slide -->
+  <section>
+    <h3>📦 Arrays – Multiple Products</h3>
+    <p>Store product names, tasks, images, etc.</p>
+    <pre><code class="language-js">
+let products = ["iPhone", "Samsung", "Xiaomi"];
+console.log(products[1]); // Samsung
+    </code></pre>
+    <p><strong>Real Use:</strong> Loop through and display products in a grid</p>
+  </section>
+
+  <!-- Objects Slide -->
+  <section>
+    <h3>🧱 Objects – One Product’s Data</h3>
+    <p>Group data into one structure</p>
+    <pre><code class="language-js">
+let product = {
+  name: "Laptop",
+  price: 899,
+  description: "Fast and reliable"
+};
+    </code></pre>
+    <p><strong>Real Use:</strong> Fill product card dynamically from object</p>
+  </section>
+
+  <!-- Events Slide -->
+  <section>
+    <h3>🖱️ Events – React to Users</h3>
+    <p>Make the app interactive</p>
+    <pre><code class="language-js">
+btn.onclick = () => {
+  alert("Added to Cart!");
+};
+    </code></pre>
+    <p><strong>Real Use:</strong> Button clicks, toggles, sliders, input fields</p>
+  </section>
+</section>
+
+
+
+<!-- project steps  -->
+ <section>
+  <section>
+    <h2>🧠 App Schema:<a href="./fullProject.html">Add Product ➜ Show in Cart</a> </h2>
+    <p>This shows the whole flow of how the app works using DOM, Objects, Arrays, and Events.</p>
+    <p style="font-size: 0.7em; color: gray;">(Real app structure simplified for learning)</p>
+  </section>
+
+  <section>
+    <h3>🧾 Step-by-Step Flow</h3>
+    <ol>
+      <li>User types in <strong>form fields</strong></li>
+      <li>Click “Add to Cart” triggers <strong>submit event</strong></li>
+      <li>Create a <strong>product object</strong></li>
+      <li>Push object into <strong>cart[] array</strong></li>
+      <li>Loop over array ➜ use <strong>DOM</strong> to display each product</li>
+      <li>Each card has <strong>delete button</strong> ➜ removes from array</li>
+    </ol>
+  </section>
+
+  <section>
+    <h3>💡 Code Concepts In Use</h3>
+    <ul>
+      <li><strong>DOM</strong>: Get inputs, create elements, display results</li>
+      <li><strong>Events</strong>: Form submit, button clicks</li>
+      <li><strong>Data Types</strong>: Strings (name, desc), Number (price)</li>
+      <li><strong>Object</strong>: Product = { name, price, description }</li>
+      <li><strong>Array</strong>: cart[] stores all product objects</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>🔄 Example Object in Array</h3>
+    <pre><code class="language-js">let cart = [
+  {
+    name: "Laptop",
+    price: 900,
+    description: "Fast and lightweight"
+  },
+  {
+    name: "Phone",
+    price: 500,
+    description: "Great camera"
+  }
+];</code></pre>
+    <p>Each object is added when user submits the form.</p>
+  </section>
+
+  <section>
+    <h3>🎯 Learning Goals</h3>
+    <ul>
+      <li>Understand how data moves from input ➜ to array ➜ to screen</li>
+      <li>Practice <strong>array.push()</strong>, <strong>array.splice()</strong>, and <strong>forEach()</strong></li>
+      <li>Link user actions (clicks) to UI changes using DOM</li>
+    </ul>
+    <p>🧪 Real-world logic: Shopping carts, todo lists, user submissions</p>
+  </section>
+</section>
+
+
+
+
+      <!-- Project 1 Horizontal Slide -->
+      <section>
+        <section>
+          <h2>🧪 Project 1: <a href="./01-product.html">Product Info Viewer</a></h2>
+          <p>User clicks a button to show product info from an object</p>
+         
+          <pre><code class="language-js">let product = {
+  name: "Laptop",
+  price: 899,
+  description: "A fast and reliable laptop."
+};
+btnShow.addEventListener("click", function() {
+  nameEl.textContent = product.name;
+  priceEl.textContent = "$" + product.price;
+  descEl.textContent = product.description;
+});</code></pre>
+        </section>
+
+        <section>
+          <h3>📘 Concepts Learned</h3>
+          <ul>
+            <li>What is an <strong>object</strong></li>
+            <li>Access object <strong>properties</strong></li>
+            <li><strong>DOM selectors</strong>: getElementById</li>
+            <li><strong>Events</strong>: addEventListener</li>
+            <li><strong>Update content</strong>: textContent</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>🎓 Mini Course: Objects + DOM</h3>
+          <p>Example:</p>
+          <pre><code class="language-js">let car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2020
+};
+
+console.log(car.model);</code></pre>
+          <p><strong>Try:</strong> Show car.brand and car.year in the browser using DOM.</p>
+        </section>
+
+        <section>
+          <h3>🧠 Practice Extension</h3>
+          <p>Create a second product object and button to toggle between them</p>
+        </section>
+      </section>
+
+      <!-- Project 2 Horizontal Slide -->
+      <section>
+        <section>
+          <h2>🧮 Project 2: <a href="./02-Count.html">Click Counter</a></h2>
+          <p>Count clicks and display messages</p>
+          <pre><code class="language-js">let count = 0;
+btn.addEventListener("click", function() {
+  count++;
+  counterEl.textContent = count;
+  if (count === 10) {
+    messageEl.textContent = "You Win!";
+  }
+});</code></pre>
+        </section>
+
+        <section>
+          <h3>📘 Concepts Learned</h3>
+          <ul>
+            <li>Variables as <strong>counters</strong></li>
+            <li>Using <strong>if statements</strong></li>
+            <li><strong>Increment</strong> operators</li>
+            <li>DOM Events & Display</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>🎓 Mini Course: Conditions</h3>
+          <pre><code class="language-js">let score = 85;
+if (score >= 90) {
+  console.log("A grade");
+} else if (score >= 75) {
+  console.log("B grade");
+} else {
+  console.log("C grade");
+}</code></pre>
+          <p>Try using different values for <code>score</code></p>
+        </section>
+
+        <section>
+          <h3>🧠 Practice Extension</h3>
+          <p>Add reset button and message for every 5 clicks</p>
+        </section>
+      </section>
+
+      <!-- Project 3 Horizontal Slide -->
+      <section>
+        <section>
+          <h2>📋 Project 3: To-Do List</h2>
+          <p>Add, show, and delete tasks using buttons</p>
+          <pre><code class="language-js">let tasks = [];
+btnAdd.onclick = function() {
+  tasks.push(inputEl.value);
+  render();
+};
+function render() {
+  listEl.innerHTML = "";
+  tasks.forEach((t, i) => {
+    let li = document.createElement("li");
+    li.textContent = t;
+    let btn = document.createElement("button");
+    btn.textContent = "Delete";
+    btn.onclick = () => {
+      tasks.splice(i, 1);
+      render();
+    };
+    li.appendChild(btn);
+    listEl.appendChild(li);
+  });
+}</code></pre>
+        </section>
+
+        <section>
+          <h3>📘 Concepts Learned</h3>
+          <ul>
+            <li><strong>Arrays</strong>: push, splice</li>
+            <li><strong>Loops</strong>: forEach</li>
+            <li><strong>DOM Manipulation</strong>: createElement, appendChild</li>
+            <li><strong>Events</strong> inside loops</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>🎓 Mini Course: Array Basics</h3>
+          <pre><code class="language-js">let colors = ["red", "blue"];
+colors.push("green");
+colors.splice(1, 1);
+console.log(colors);</code></pre>
+          <p>Try removing first element and printing all values</p>
+        </section>
+
+        <section>
+          <h3>🧠 Practice Extension</h3>
+          <p>Add checkbox to mark task completed (with strike-through)</p>
+        </section>
+      </section>
+
+      <!-- Project 4 Horizontal Slide -->
+      <section>
+        <section>
+          <h2>❓ Project 4: Quiz App</h2>
+          <p>Show questions, accept true/false answers, calculate score</p>
+          <pre><code class="language-js">let questions = [
+  { q: "HTML is a language", a: true },
+  { q: "JS is only for games", a: false }
+];
+let current = 0, score = 0;
+function showQ() {
+  qEl.textContent = questions[current].q;
+}
+function check(ans) {
+  if (ans === questions[current].a) score++;
+  current++;
+  current < questions.length ? showQ() : result();
+}</code></pre>
+        </section>
+
+        <section>
+          <h3>📘 Concepts Learned</h3>
+          <ul>
+            <li><strong>Objects in arrays</strong></li>
+            <li><strong>Comparisons</strong> and logic</li>
+            <li><strong>Functions</strong> to organize code</li>
+            <li><strong>Score system</strong></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>🎓 Mini Course: Logical Thinking</h3>
+          <pre><code class="language-js">let age = 20;
+if (age >= 18) {
+  console.log("You can vote!");
+} else {
+  console.log("Too young");
+}</code></pre>
+          <p>Use logic to make apps interactive!</p>
+        </section>
+
+        <section>
+          <h3>🧠 Practice Extension</h3>
+          <p>Add more questions and a Restart button</p>
+        </section>
+      </section>
+
+      <section>
+        <h2>🎯 Final Practice Project</h2>
+        <p>Combine: Product display, Counter, Task list, and Quiz ideas in 1 fun project!</p>
+        <ul>
+          <li>Use all learned concepts</li>
+          <li>Make it yours: profile page, shop, etc.</li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealHighlight ]
+    });
+  </script>
+</body>
+</html>

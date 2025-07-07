@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Product Cart</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto 2rem;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cart {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 0.5rem 0;
+    }
+    .cart-item button {
+      background: red;
+      padding: 5px 10px;
+    }
+
+.corner-ui {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+     
+    }
+
+    .corner-ui a {
+      background-color: #d81717;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #333;
+      border: 1px solid #ccc;
+      transition: background 0.2s ease;
+    }
+
+    .corner-ui a:hover {
+      background-color: #e2e2e2;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>🛍️ Custom Cart App</h1>
+
+  <form id="productForm">
+    <h2>Add Product</h2>
+    <input type="text" id="name" placeholder="Product Name" required />
+    <input type="number" id="price" placeholder="Price" required />
+    <textarea id="description" placeholder="Description" required></textarea>
+    <button type="submit">Add to Cart</button>
+  </form>
+
+  <div class="cart">
+    <h2>🛒 Cart</h2>
+    <div id="cartItems">
+      <p>No items yet</p>
+    </div>
+  </div>
+
+  <div  class="corner-ui">
+    <a href="./index.html#/3">← Go to Slides</a>
+</div>
+  <script>
+    const form = document.getElementById("productForm");
+    const cartItems = document.getElementById("cartItems");
+
+    let cart = []; // 🧠 Array to store products
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // ✏️ Get input values
+      const name = document.getElementById("name").value.trim();
+      const price = parseFloat(document.getElementById("price").value);
+      const description = document.getElementById("description").value.trim();
+
+      if (!name || isNaN(price) || !description) return;
+
+      // 📦 Create new product object
+      const product = {
+        name,
+        price,
+        description
+      };
+
+      // ➕ Add to cart array
+      cart.push(product);
+
+      // 🧹 Reset form
+      form.reset();
+
+      // 🔁 Render cart
+      renderCart();
+    });
+
+    function renderCart() {
+      cartItems.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = "<p>No items yet</p>";
+        return;
+      }
+
+      // Create DOM for each item
+      cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <div>
+            <strong>${item.name}</strong> - $${item.price.toFixed(2)}<br>
+            <small>${item.description}</small>
+          </div>
+          <button onclick="deleteItem(${index})">❌</button>
+        `;
+        cartItems.appendChild(div);
+      });
+    }
+
+    function deleteItem(index) {
+      cart.splice(index, 1); // Remove from array
+      renderCart(); // Update DOM
+    }
+  </script>
+
+</body>
+</html>

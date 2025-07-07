@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>True/False Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f6fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .quiz-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 320px;
+    }
+
+    .quiz-box h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #question {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+      color: #1e2a38;
+      min-height: 60px;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .btns button {
+      flex: 1;
+      padding: 12px 0;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .true {
+      background-color: #28a745;
+    }
+
+    .true:hover {
+      background-color: #218838;
+    }
+
+    .false {
+      background-color: #dc3545;
+    }
+
+    .false:hover {
+      background-color: #c82333;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-box">
+    <h1>True / False Quiz</h1>
+    <div id="question">Loading question...</div>
+    <div class="btns">
+      <button class="true" onclick="check(true)">True</button>
+      <button class="false" onclick="check(false)">False</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "HTML is a language", a: true },
+      { q: "JS is only for games", a: false }
+    ];
+    let current = 0, score = 0;
+
+    const qEl = document.getElementById("question");
+    const resultEl = document.getElementById("result");
+
+    function showQ() {
+      qEl.textContent = questions[current].q;
+    }
+
+    function check(ans) {
+      if (ans === questions[current].a) score++;
+      current++;
+      current < questions.length ? showQ() : result();
+    }
+
+    function result() {
+      qEl.textContent = "";
+      resultEl.textContent = `Quiz Finished! Your Score: ${score}/${questions.length}`;
+    }
+
+    showQ(); // start with first question
+  </script>
+
+</body>
+</html>
